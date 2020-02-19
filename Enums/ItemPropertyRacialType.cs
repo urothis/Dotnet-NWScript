@@ -1,0 +1,30 @@
+namespace NWN.Enums
+{
+    public enum ItemPropertyRacialType
+    {
+        Dwarf,
+        Elf,
+        Gnome,
+        Halfling,
+        HalfElf,
+        HalfOrc,
+        Human,
+        Aberration,
+        Animal,
+        Beast,
+        Construct,
+        Dragon,
+        HumanoidGoblin,
+        HumanoidMonstrous,
+        HumanoidOrc,
+        HumanoidReptilian,
+        Elemental,
+        Fey,
+        Giant,
+        MagicalBeast,
+        Outsider,
+        ShapeChanger,
+        Undead,
+        Vermin
+    }
+}

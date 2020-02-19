@@ -1,0 +1,31 @@
+namespace NWN.Enums
+{
+    public enum ItemPropertyOnHit
+    {
+        Sleep,
+        Stun,
+        Hold,
+        Confusion,
+        Daze,
+        Doom,
+        Fear,
+        Knock,
+        Slow,
+        LesserDispel,
+        DispelMagic,
+        GreaterDispel,
+        MordsdisJunction,
+        Silence,
+        Deafness,
+        Blindness,
+        LevelDrain,
+        AbilityDrain,
+        ItemPoison,
+        Disease,
+        SlayRace,
+        SlayAlignmentGroup,
+        SlayAlignment,
+        Vorpal,
+        Wounding
+    }
+}
