@@ -2,6 +2,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using NWN.Enums;
+using NWN.Enums.Creature;
+using NWN.Enums.Associate;
 
 namespace NWN
 {
@@ -104,9 +106,9 @@ namespace NWN
         public virtual bool IsPlayableRace => NWScript.GetIsPlayableRacialType(this);
 
         public virtual float TotalWeight => NWScript.GetWeight(this) * 0.1f;
-        public virtual CreatureSize Size
+        public virtual Size Size
         {
-            get => (CreatureSize)NWScript.GetCreatureSize(this);
+            get => (Size)NWScript.GetCreatureSize(this);
             set => NWNX.Creature.SetSize(this, value);
         }
         public virtual int Gold
@@ -193,7 +195,7 @@ namespace NWN
 
         public virtual bool IsDMPossessed => NWScript.GetIsDMPossessed(this) == true;
         public virtual NWCreature Master => NWScript.GetMaster(this).AsCreature();
-        public virtual AssociateCommand LastCommandFromMaster => (AssociateCommand)NWScript.GetLastAssociateCommand(this);
+        public virtual Command LastCommandFromMaster => (Command)NWScript.GetLastAssociateCommand(this);
         public virtual NWItem LastWeaponUsed => NWScript.GetLastWeaponUsed(this).AsItem();
         public virtual NWObject LastDamager => NWScript.GetLastDamager(this).AsObject();
         public virtual NWTrappable LastTrapDetected => NWScript.GetLastTrapDetected(this).AsTrappable();

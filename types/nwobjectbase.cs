@@ -4,10 +4,10 @@ namespace NWN
 {
     public class NWObjectBase
     {
-        public uint OID {get; protected set;}
+        public uint OID {get; }
         public class EventScripts
         {
-            private NWObjectBase owner;
+            private NWObjectBase? owner;
             public EventScripts(NWObjectBase owner) { this.owner = owner; }
             public string this[EventScript key]
             {
@@ -16,8 +16,8 @@ namespace NWN
             }
         }
 
-        public AllLocals Locals;
-        public EventScripts Scripts;
+        public AllLocals? Locals;
+        public EventScripts? Scripts;
 
         public NWObjectBase(uint oid)
         {
@@ -30,21 +30,21 @@ namespace NWN
         public static uint OBJECT_SELF { get { return Internal.OBJECT_SELF; } }
 
 
-        public static bool operator ==(NWObjectBase lhs, NWObjectBase rhs)
+        public static bool operator ==(NWObjectBase? lhs, NWObjectBase? rhs)
         {
-            bool lhsNull = object.ReferenceEquals(lhs, null);
-            bool rhsNull = object.ReferenceEquals(rhs, null);
+            var lhsNull = object.ReferenceEquals(lhs, null);
+            var rhsNull = object.ReferenceEquals(rhs, null);
             return (lhsNull && rhsNull) || (!lhsNull && !rhsNull && lhs.OID == rhs.OID);
         }
 
-        public static bool operator !=(NWObjectBase lhs, NWObjectBase rhs)
+        public static bool operator !=(NWObjectBase? lhs, NWObjectBase? rhs)
         {
             return !(lhs == rhs);
         }
 
-        public override bool Equals(object o)
+        public override bool Equals(object? o)
         {
-            NWObjectBase other = o as NWObjectBase;
+            var other = o as NWObjectBase;
             return other != null && other == this;
         }
 
@@ -68,11 +68,10 @@ namespace NWN
             set => NWScript.SetTag(this, value);
         }
         public virtual string ResRef => NWScript.GetResRef(this);
-        public virtual bool IsValid => this != null && NWScript.GetIsObjectValid(this) == 1;
+        public virtual bool IsValid => NWScript.GetIsObjectValid(this);
         public virtual void AssignCommand(ActionDelegate action)
         {
             NWScript.AssignCommand(this, action);
         }
     }
-
 }

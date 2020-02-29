@@ -808,11 +808,11 @@ namespace NWN
         /// <summary>
         ///  * Returns TRUE if oObject is a valid object.
         /// </summary>
-        public static int GetIsObjectValid(uint oObject)
+        public static bool GetIsObjectValid(uint oObject)
         {
             NWN.Internal.NativeFunctions.StackPushObject(oObject);
             NWN.Internal.NativeFunctions.CallBuiltIn(42);
-            return NWN.Internal.NativeFunctions.StackPopInteger();
+            return NWN.Internal.NativeFunctions.StackPopInteger() != 0;
         }
     }
 }

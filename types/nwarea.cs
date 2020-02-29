@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using NWN.Enums;
+using NWN.Enums.Area;
 
 namespace NWN
 {
@@ -8,11 +9,11 @@ namespace NWN
     {
         public NWArea(uint oid) : base(oid) {}
 
-        public int Width  => NWScript.GetAreaSize(AreaDimension.Width, this);
-        public int Height => NWScript.GetAreaSize(AreaDimension.Width, this);
-        public AreaAboveGround IsInterior => NWScript.GetIsAreaInterior(this);
-        public AreaNatural IsNatural => NWScript.GetIsAreaNatural(this);
-        public AreaNatural IsAboveGround => NWScript.GetIsAreaNatural(this);
+        public int Width  => NWScript.GetAreaSize(Dimension.Width, this);
+        public int Height => NWScript.GetAreaSize(Dimension.Width, this);
+        public AboveGround IsInterior => NWScript.GetIsAreaInterior(this);
+        public Natural IsNatural => NWScript.GetIsAreaNatural(this);
+        public Natural IsAboveGround => NWScript.GetIsAreaNatural(this);
         public string Tileset => NWScript.GetTilesetResRef(this);
         public int PlayerCount => NWNX.Area.GetNumberOfPlayersInArea(this);
         public NWCreature LastEntered => NWNX.Area.GetLastEntered(this).AsCreature();
@@ -52,7 +53,7 @@ namespace NWN
             get => NWNX.Area.GetShadowOpacity(this);
             set => NWNX.Area.SetShadowOpacity(this, value);
         }
-        public DayNightCycleType DayNightCycle
+        public DayNightCycle DayNightCycle
         {
             get => NWNX.Area.GetDayNightCycle(this);
             set => NWNX.Area.SetDayNightCycle(this, value);

@@ -1,4 +1,6 @@
 using NWN.Enums;
+using NWN.Enums.Item;
+using NWN.Enums.Item.Property;
 
 namespace NWN
 {
@@ -328,7 +330,7 @@ namespace NWN
         ///  * Returns FALSE if oItem is not a valid item, or if oItem does not have
         ///    nProperty.
         /// </summary>
-        public static int GetItemHasItemProperty(uint oItem, ItemProperties nProperty)
+        public static int GetItemHasItemProperty(uint oItem, ItemPropertyType nProperty)
         {
             NWN.Internal.NativeFunctions.StackPushInteger((int)nProperty);
             NWN.Internal.NativeFunctions.StackPushObject(oItem);

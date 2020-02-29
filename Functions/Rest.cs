@@ -36,10 +36,10 @@ namespace NWN
         ///  Determine the type (REST_EVENTTYPE_REST_*) of the last rest event (as
         ///  returned from the OnPCRested module event).
         /// </summary>
-        public static RestType GetLastRestEventType()
+        public static RestEventTypeRest GetLastRestEventType()
         {
             NWN.Internal.NativeFunctions.CallBuiltIn(508);
-            return (RestType)NWN.Internal.NativeFunctions.StackPopInteger();
+            return (RestEventTypeRest)NWN.Internal.NativeFunctions.StackPopInteger();
         }
 
         /// <summary>

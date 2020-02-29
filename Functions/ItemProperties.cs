@@ -1,4 +1,6 @@
 using NWN.Enums;
+using NWN.Enums.Item;
+using NWN.Enums.Item.Property;
 
 namespace NWN
 {
@@ -83,7 +85,7 @@ namespace NWN
         ///  ability constant(IP_CONST_ABILITY_*) and the bonus.  The bonus should
         ///  be a positive integer between 1 and 12.
         /// </summary>
-        public static NWN.ItemProperty ItemPropertyAbilityBonus(ItemPropertyAbility nAbility, int nBonus)
+        public static NWN.ItemProperty ItemPropertyAbilityBonus(NWN.Enums.Ability nAbility, int nBonus)
         {
             NWN.Internal.NativeFunctions.StackPushInteger(nBonus);
             NWN.Internal.NativeFunctions.StackPushInteger((int)nAbility);
@@ -110,9 +112,9 @@ namespace NWN
         ///  The AC bonus should be an integer between 1 and 20.  The modifier
         ///  type depends on the item it is being applied to.
         /// </summary>
-        public static NWN.ItemProperty ItemPropertyACBonusVsAlign(ItemPropertyAlignmentGroup nAlignGroup, int nACBonus)
+        public static NWN.ItemProperty ItemPropertyACBonusVsAlign(NWN.Enums.Item.Property.AlignmentGroup nAlignGroup, int ACBonus)
         {
-            NWN.Internal.NativeFunctions.StackPushInteger(nACBonus);
+            NWN.Internal.NativeFunctions.StackPushInteger(ACBonus);
             NWN.Internal.NativeFunctions.StackPushInteger((int)nAlignGroup);
             NWN.Internal.NativeFunctions.CallBuiltIn(618);
             return new NWN.ItemProperty(NWN.Internal.NativeFunctions.StackPopItemProperty());
@@ -126,9 +128,9 @@ namespace NWN
         ///  NOTE: Only the first 3 damage types may be used here, the 3 basic
         ///        physical types.
         /// </summary>
-        public static NWN.ItemProperty ItemPropertyACBonusVsDmgType(ItemPropertyDamageType nDamageType, int nACBonus)
+        public static NWN.ItemProperty ItemPropertyACBonusVsDmgType(Enums.Item.Property.DamageType nDamageType, int ACBonus)
         {
-            NWN.Internal.NativeFunctions.StackPushInteger(nACBonus);
+            NWN.Internal.NativeFunctions.StackPushInteger(ACBonus);
             NWN.Internal.NativeFunctions.StackPushInteger((int)nDamageType);
             NWN.Internal.NativeFunctions.CallBuiltIn(619);
             return new NWN.ItemProperty(NWN.Internal.NativeFunctions.StackPopItemProperty());
@@ -140,7 +142,7 @@ namespace NWN
         ///  bonus should be an integer between 1 and 20.  The modifier type depends
         ///  on the item it is being applied to.
         /// </summary>
-        public static NWN.ItemProperty ItemPropertyACBonusVsRace(ItemPropertyRacialType nRace, int nACBonus)
+        public static NWN.ItemProperty ItemPropertyACBonusVsRace(Enums.Item.Property.RacialType nRace, int nACBonus)
         {
             NWN.Internal.NativeFunctions.StackPushInteger(nACBonus);
             NWN.Internal.NativeFunctions.StackPushInteger((int)nRace);
@@ -154,7 +156,7 @@ namespace NWN
         ///  bonus.  The AC bonus should be an integer between 1 and 20.  The
         ///  modifier type depends on the item it is being applied to.
         /// </summary>
-        public static NWN.ItemProperty ItemPropertyACBonusVsSAlign(ItemPropertyAlignment nAlign, int nACBonus)
+        public static NWN.ItemProperty ItemPropertyACBonusVsSAlign(Enums.Item.Property.Alignment nAlign, int nACBonus)
         {
             NWN.Internal.NativeFunctions.StackPushInteger(nACBonus);
             NWN.Internal.NativeFunctions.StackPushInteger((int)nAlign);
@@ -180,7 +182,7 @@ namespace NWN
         ///  and the enhancement bonus.  The Enhancement bonus should be an integer
         ///  between 1 and 20.
         /// </summary>
-        public static NWN.ItemProperty ItemPropertyEnhancementBonusVsAlign(ItemPropertyAlignmentGroup nAlignGroup, int nBonus)
+        public static NWN.ItemProperty ItemPropertyEnhancementBonusVsAlign(Enums.Item.Property.AlignmentGroup nAlignGroup, int nBonus)
         {
             NWN.Internal.NativeFunctions.StackPushInteger(nBonus);
             NWN.Internal.NativeFunctions.StackPushInteger((int)nAlignGroup);
@@ -194,7 +196,7 @@ namespace NWN
         ///  enhancement bonus.  The enhancement bonus should be an integer between
         ///  1 and 20.
         /// </summary>
-        public static NWN.ItemProperty ItemPropertyEnhancementBonusVsRace(ItemPropertyRacialType nRace, int nBonus)
+        public static NWN.ItemProperty ItemPropertyEnhancementBonusVsRace(Enums.Item.Property.RacialType nRace, int nBonus)
         {
             NWN.Internal.NativeFunctions.StackPushInteger(nBonus);
             NWN.Internal.NativeFunctions.StackPushInteger((int)nRace);
@@ -208,7 +210,7 @@ namespace NWN
         ///  enhancement bonus.  The enhancement bonus should be an integer between
         ///  1 and 20.
         /// </summary>
-        public static NWN.ItemProperty ItemPropertyEnhancementBonusVsSAlign(ItemPropertyAlignment nAlign, int nBonus)
+        public static NWN.ItemProperty ItemPropertyEnhancementBonusVsSAlign(Enums.Item.Property.Alignment nAlign, int nBonus)
         {
             NWN.Internal.NativeFunctions.StackPushInteger(nBonus);
             NWN.Internal.NativeFunctions.StackPushInteger((int)nAlign);
@@ -232,7 +234,7 @@ namespace NWN
         ///  Returns Item property weight reduction.  You need to specify the weight
         ///  reduction constant(IP_CONST_REDUCEDWEIGHT_*).
         /// </summary>
-        public static NWN.ItemProperty ItemPropertyWeightReduction(ItemPropertyReducedWeight nReduction)
+        public static NWN.ItemProperty ItemPropertyWeightReduction(Enums.Item.Property.ReducedWeight nReduction)
         {
             NWN.Internal.NativeFunctions.StackPushInteger((int)nReduction);
             NWN.Internal.NativeFunctions.CallBuiltIn(627);
@@ -243,7 +245,7 @@ namespace NWN
         ///  Returns Item property Bonus Feat.  You need to specify the the feat
         ///  constant(IP_CONST_FEAT_*).
         /// </summary>
-        public static NWN.ItemProperty ItemPropertyBonusFeat(ItemPropertyFeat nFeat)
+        public static NWN.ItemProperty ItemPropertyBonusFeat(Enums.Item.Property.Feat nFeat)
         {
             NWN.Internal.NativeFunctions.StackPushInteger((int)nFeat);
             NWN.Internal.NativeFunctions.CallBuiltIn(628);
@@ -256,7 +258,7 @@ namespace NWN
         ///  spell casting class) and the level of the bonus spell.  The level of the
         ///  bonus spell should be an integer between 0 and 9.
         /// </summary>
-        public static NWN.ItemProperty ItemPropertyBonusLevelSpell(ItemPropertyClass nClass, ItemPropertySpellLevel nSpellLevel)
+        public static NWN.ItemProperty ItemPropertyBonusLevelSpell(Class nClass, SpellLevel nSpellLevel)
         {
             NWN.Internal.NativeFunctions.StackPushInteger((int)nSpellLevel);
             NWN.Internal.NativeFunctions.StackPushInteger((int)nClass);
@@ -653,7 +655,7 @@ namespace NWN
         ///           Special_Alcohol_Wine
         ///
         /// </summary>
-        public static NWN.ItemProperty ItemPropertyCastSpell(ItemPropertyCastSpell nSpell, ItemPropertyCastSpellNumUses nNumUses)
+        public static NWN.ItemProperty ItemPropertyCastSpell(CastSpell nSpell, CastSpellNumberUses nNumUses)
         {
             NWN.Internal.NativeFunctions.StackPushInteger((int)nNumUses);
             NWN.Internal.NativeFunctions.StackPushInteger((int)nSpell);
@@ -667,7 +669,7 @@ namespace NWN
         ///  NOTE: not all the damage types will work, use only the following: Acid, Bludgeoning,
         ///        Cold, Electrical, Fire, Piercing, Slashing, Sonic.
         /// </summary>
-        public static NWN.ItemProperty ItemPropertyDamageBonus(ItemPropertyDamageType nDamageType, ItemPropertyDamageBonus nDamage)
+        public static NWN.ItemProperty ItemPropertyDamageBonus(Enums.Item.Property.DamageType nDamageType, DamageBonus nDamage)
         {
             NWN.Internal.NativeFunctions.StackPushInteger((int)nDamage);
             NWN.Internal.NativeFunctions.StackPushInteger((int)nDamageType);
@@ -682,7 +684,7 @@ namespace NWN
         ///  NOTE: not all the damage types will work, use only the following: Acid, Bludgeoning,
         ///        Cold, Electrical, Fire, Piercing, Slashing, Sonic.
         /// </summary>
-        public static NWN.ItemProperty ItemPropertyDamageBonusVsAlign(ItemPropertyAlignmentGroup nAlignGroup, ItemPropertyDamageType nDamageType, ItemPropertyDamageBonus nDamage)
+        public static NWN.ItemProperty ItemPropertyDamageBonusVsAlign(Enums.Item.Property.AlignmentGroup nAlignGroup, Enums.Item.Property.DamageType nDamageType, DamageBonus nDamage)
         {
             NWN.Internal.NativeFunctions.StackPushInteger((int)nDamage);
             NWN.Internal.NativeFunctions.StackPushInteger((int)nDamageType);
@@ -698,7 +700,7 @@ namespace NWN
         ///  NOTE: not all the damage types will work, use only the following: Acid, Bludgeoning,
         ///        Cold, Electrical, Fire, Piercing, Slashing, Sonic.
         /// </summary>
-        public static NWN.ItemProperty ItemPropertyDamageBonusVsRace(ItemPropertyRacialType nRace, ItemPropertyDamageType nDamageType, ItemPropertyDamageBonus nDamage)
+        public static NWN.ItemProperty ItemPropertyDamageBonusVsRace(Enums.Item.Property.RacialType nRace, Enums.Item.Property.DamageType nDamageType, DamageBonus nDamage)
         {
             NWN.Internal.NativeFunctions.StackPushInteger((int)nDamage);
             NWN.Internal.NativeFunctions.StackPushInteger((int)nDamageType);
@@ -714,7 +716,7 @@ namespace NWN
         ///  NOTE: not all the damage types will work, use only the following: Acid, Bludgeoning,
         ///        Cold, Electrical, Fire, Piercing, Slashing, Sonic.
         /// </summary>
-        public static NWN.ItemProperty ItemPropertyDamageBonusVsSAlign(ItemPropertyAlignment nAlign, ItemPropertyDamageType nDamageType, ItemPropertyDamageBonus nDamage)
+        public static NWN.ItemProperty ItemPropertyDamageBonusVsSAlign(Enums.Item.Property.Alignment nAlign, Enums.Item.Property.DamageType nDamageType, DamageBonus nDamage)
         {
             NWN.Internal.NativeFunctions.StackPushInteger((int)nDamage);
             NWN.Internal.NativeFunctions.StackPushInteger((int)nDamageType);
@@ -730,7 +732,7 @@ namespace NWN
         ///  NOTE: not all the damage types will work, use only the following: Acid, Bludgeoning,
         ///        Cold, Electrical, Fire, Piercing, Slashing, Sonic.
         /// </summary>
-        public static NWN.ItemProperty ItemPropertyDamageImmunity(ItemPropertyDamageType nDamageType, ItemPropertyDamageImmunity nImmuneBonus)
+        public static NWN.ItemProperty ItemPropertyDamageImmunity(Enums.Item.Property.DamageType nDamageType, DamageImmunity nImmuneBonus)
         {
             NWN.Internal.NativeFunctions.StackPushInteger((int)nImmuneBonus);
             NWN.Internal.NativeFunctions.StackPushInteger((int)nDamageType);
@@ -757,7 +759,7 @@ namespace NWN
         ///  and the amount of HP of damage constant(IP_CONST_DAMAGESOAK_*) will be soaked
         ///  up if your weapon is not of high enough enhancement.
         /// </summary>
-        public static NWN.ItemProperty ItemPropertyDamageReduction(ItemPropertyDamageReduction nEnhancement, ItemPropertyDamageSoak nHPSoak)
+        public static NWN.ItemProperty ItemPropertyDamageReduction(DamageReduction nEnhancement, DamageSoak nHPSoak)
         {
             NWN.Internal.NativeFunctions.StackPushInteger((int)nHPSoak);
             NWN.Internal.NativeFunctions.StackPushInteger((int)nEnhancement);
@@ -770,7 +772,7 @@ namespace NWN
         ///  constant(IP_CONST_DAMAGETYPE_*) and the amount of HP of damage constant
         ///  (IP_CONST_DAMAGERESIST_*) that will be resisted against each round.
         /// </summary>
-        public static NWN.ItemProperty ItemPropertyDamageResistance(ItemPropertyDamageType nDamageType, ItemPropertyDamageResist nHPResist)
+        public static NWN.ItemProperty ItemPropertyDamageResistance(Enums.Item.Property.DamageType nDamageType, DamageResist nHPResist)
         {
             NWN.Internal.NativeFunctions.StackPushInteger((int)nHPResist);
             NWN.Internal.NativeFunctions.StackPushInteger((int)nDamageType);
@@ -783,7 +785,7 @@ namespace NWN
         ///  constant(IP_CONST_DAMAGETYPE_*) that you want the user to be extra vulnerable to
         ///  and the percentage vulnerability constant(IP_CONST_DAMAGEVULNERABILITY_*).
         /// </summary>
-        public static NWN.ItemProperty ItemPropertyDamageVulnerability(ItemPropertyDamageType nDamageType, ItemPropertyDamageVulnerability nVulnerability)
+        public static NWN.ItemProperty ItemPropertyDamageVulnerability(Enums.Item.Property.DamageType nDamageType, Enums.Item.Property.DamageVulnerability nVulnerability)
         {
             NWN.Internal.NativeFunctions.StackPushInteger((int)nVulnerability);
             NWN.Internal.NativeFunctions.StackPushInteger((int)nDamageType);
@@ -805,7 +807,7 @@ namespace NWN
         ///  constant(IP_CONST_ABILITY_*) and the modifier constant.  The modifier must be
         ///  a POSITIVE integer between 1 and 10 (ie. 1 = -1).
         /// </summary>
-        public static NWN.ItemProperty ItemPropertyDecreaseAbility(ItemPropertyAbility nAbility, int nModifier)
+        public static NWN.ItemProperty ItemPropertyDecreaseAbility(Enums.Item.Property.Ability nAbility, int nModifier)
         {
             NWN.Internal.NativeFunctions.StackPushInteger(nModifier);
             NWN.Internal.NativeFunctions.StackPushInteger((int)nAbility);
@@ -818,7 +820,7 @@ namespace NWN
         ///  modifier type constant(IP_CONST_ACMODIFIERTYPE_*) and the armor class penalty.
         ///  The penalty must be a POSITIVE integer between 1 and 5 (ie. 1 = -1).
         /// </summary>
-        public static NWN.ItemProperty ItemPropertyDecreaseAC(ItemPropertyAcModifierType nModifierType, int nPenalty)
+        public static NWN.ItemProperty ItemPropertyDecreaseAC(ArmorClassModiferType nModifierType, int nPenalty)
         {
             NWN.Internal.NativeFunctions.StackPushInteger(nPenalty);
             NWN.Internal.NativeFunctions.StackPushInteger((int)nModifierType);
@@ -844,7 +846,7 @@ namespace NWN
         ///  containers that reduce the weight of the objects inside them.  You must
         ///  specify the container weight reduction type constant(IP_CONST_CONTAINERWEIGHTRED_*).
         /// </summary>
-        public static NWN.ItemProperty ItemPropertyContainerReducedWeight(ItemPropertyContainerWeightRed nContainerType)
+        public static NWN.ItemProperty ItemPropertyContainerReducedWeight(ContainerWeight nContainerType)
         {
             NWN.Internal.NativeFunctions.StackPushInteger((int)nContainerType);
             NWN.Internal.NativeFunctions.CallBuiltIn(644);
@@ -858,7 +860,7 @@ namespace NWN
         ///        here.
         ///  NOTE: It is also only applicable to melee weapons.
         /// </summary>
-        public static NWN.ItemProperty ItemPropertyExtraMeleeDamageType(ItemPropertyDamageType nDamageType)
+        public static NWN.ItemProperty ItemPropertyExtraMeleeDamageType(Enums.Item.Property.DamageType nDamageType)
         {
             NWN.Internal.NativeFunctions.StackPushInteger((int)nDamageType);
             NWN.Internal.NativeFunctions.CallBuiltIn(645);
@@ -872,7 +874,7 @@ namespace NWN
         ///        here.
         ///  NOTE: It is also only applicable to ranged weapons.
         /// </summary>
-        public static NWN.ItemProperty ItemPropertyExtraRangeDamageType(ItemPropertyDamageType nDamageType)
+        public static NWN.ItemProperty ItemPropertyExtraRangeDamageType(Enums.Item.Property.DamageType nDamageType)
         {
             NWN.Internal.NativeFunctions.StackPushInteger((int)nDamageType);
             NWN.Internal.NativeFunctions.CallBuiltIn(646);
@@ -901,7 +903,7 @@ namespace NWN
         ///  Returns Item property immunity to miscellaneous effects.  You must specify the
         ///  effect to which the user is immune, it is a constant(IP_CONST_IMMUNITYMISC_*).
         /// </summary>
-        public static NWN.ItemProperty ItemPropertyImmunityMisc(ItemPropertyImmunityMisc nImmunityType)
+        public static NWN.ItemProperty ItemPropertyImmunityMisc(ImmunityMisc nImmunityType)
         {
             NWN.Internal.NativeFunctions.StackPushInteger((int)nImmunityType);
             NWN.Internal.NativeFunctions.CallBuiltIn(649);
@@ -921,7 +923,7 @@ namespace NWN
         ///  Returns Item property bonus spell resistance.  You must specify the bonus spell
         ///  resistance constant(IP_CONST_SPELLRESISTANCEBONUS_*).
         /// </summary>
-        public static NWN.ItemProperty ItemPropertyBonusSpellResistance(ItemPropertySpellResistanceBonus nBonus)
+        public static NWN.ItemProperty ItemPropertyBonusSpellResistance(SpellResistanceBonus nBonus)
         {
             NWN.Internal.NativeFunctions.StackPushInteger((int)nBonus);
             NWN.Internal.NativeFunctions.CallBuiltIn(651);
@@ -934,7 +936,7 @@ namespace NWN
         ///  applied to and the bonus that is be applied.  The bonus must be an integer
         ///  between 1 and 20.
         /// </summary>
-        public static NWN.ItemProperty ItemPropertyBonusSavingThrowVsX(ItemPropertySaveVs nBonusType, int nBonus)
+        public static NWN.ItemProperty ItemPropertyBonusSavingThrowVsX(SaveVs nBonusType, int nBonus)
         {
             NWN.Internal.NativeFunctions.StackPushInteger(nBonus);
             NWN.Internal.NativeFunctions.StackPushInteger((int)nBonusType);
@@ -948,7 +950,7 @@ namespace NWN
         ///  to which the user gets the bonus and the bonus that he/she will get.  The
         ///  bonus must be an integer between 1 and 20.
         /// </summary>
-        public static NWN.ItemProperty ItemPropertyBonusSavingThrow(ItemPropertySaveBaseType nBaseSaveType, int nBonus)
+        public static NWN.ItemProperty ItemPropertyBonusSavingThrow(SaveBaseType nBaseSaveType, int nBonus)
         {
             NWN.Internal.NativeFunctions.StackPushInteger(nBonus);
             NWN.Internal.NativeFunctions.StackPushInteger((int)nBaseSaveType);
@@ -971,7 +973,7 @@ namespace NWN
         ///  light(IP_CONST_LIGHTBRIGHTNESS_*) and the color constant of the light
         ///  (IP_CONST_LIGHTCOLOR_*).
         /// </summary>
-        public static NWN.ItemProperty ItemPropertyLight(ItemPropertyLightBrightness nBrightness, ItemPropertyLightColor nColor)
+        public static NWN.ItemProperty ItemPropertyLight(LightBrightness nBrightness, LightColor nColor)
         {
             NWN.Internal.NativeFunctions.StackPushInteger((int)nColor);
             NWN.Internal.NativeFunctions.StackPushInteger((int)nBrightness);
@@ -1057,7 +1059,7 @@ namespace NWN
         ///  penalty to be applied.  The penalty must be a POSITIVE integer between 1 and 20
         ///  (ie. 1 = -1).
         /// </summary>
-        public static NWN.ItemProperty ItemPropertyReducedSavingThrowVsX(ItemPropertySaveVs nBaseSaveType, int nPenalty)
+        public static NWN.ItemProperty ItemPropertyReducedSavingThrowVsX(SaveVs nBaseSaveType, int nPenalty)
         {
             NWN.Internal.NativeFunctions.StackPushInteger(nPenalty);
             NWN.Internal.NativeFunctions.StackPushInteger((int)nBaseSaveType);
@@ -1071,7 +1073,7 @@ namespace NWN
         ///  to be applied.  The constant for the base type starts with (IP_CONST_SAVEBASETYPE_*).
         ///  The penalty must be a POSITIVE integer between 1 and 20 (ie. 1 = -1).
         /// </summary>
-        public static NWN.ItemProperty ItemPropertyReducedSavingThrow(ItemPropertySaveBaseType nBonusType, int nPenalty)
+        public static NWN.ItemProperty ItemPropertyReducedSavingThrow(SaveBaseType nBonusType, int nPenalty)
         {
             NWN.Internal.NativeFunctions.StackPushInteger(nPenalty);
             NWN.Internal.NativeFunctions.StackPushInteger((int)nBonusType);
@@ -1107,7 +1109,7 @@ namespace NWN
         ///  Returns Item property spell immunity vs. specific spell.  You must specify the
         ///  spell to which the user will be immune(IP_CONST_IMMUNITYSPELL_*).
         /// </summary>
-        public static NWN.ItemProperty ItemPropertySpellImmunitySpecific(ItemPropertyImmunitySpell nSpell)
+        public static NWN.ItemProperty ItemPropertySpellImmunitySpecific(ImmunitySpell nSpell)
         {
             NWN.Internal.NativeFunctions.StackPushInteger((int)nSpell);
             NWN.Internal.NativeFunctions.CallBuiltIn(663);
@@ -1118,7 +1120,7 @@ namespace NWN
         ///  Returns Item property spell immunity vs. spell school.  You must specify the
         ///  school to which the user will be immune(IP_CONST_SPELLSCHOOL_*).
         /// </summary>
-        public static NWN.ItemProperty ItemPropertySpellImmunitySchool(ItemPropertySpellSchool nSchool)
+        public static NWN.ItemProperty ItemPropertySpellImmunitySchool(Enums.SpellSchool nSchool)
         {
             NWN.Internal.NativeFunctions.StackPushInteger((int)nSchool);
             NWN.Internal.NativeFunctions.CallBuiltIn(664);
@@ -1152,7 +1154,7 @@ namespace NWN
         ///  alignment group constant(IP_CONST_ALIGNMENTGROUP_*) and the attack bonus.  The
         ///  bonus must be an integer between 1 and 20.
         /// </summary>
-        public static NWN.ItemProperty ItemPropertyAttackBonusVsAlign(ItemPropertyAlignmentGroup nAlignGroup, int nBonus)
+        public static NWN.ItemProperty ItemPropertyAttackBonusVsAlign(Enums.Item.Property.AlignmentGroup nAlignGroup, int nBonus)
         {
             NWN.Internal.NativeFunctions.StackPushInteger(nBonus);
             NWN.Internal.NativeFunctions.StackPushInteger((int)nAlignGroup);
@@ -1165,7 +1167,7 @@ namespace NWN
         ///  racial group constant(IP_CONST_RACIALTYPE_*) and the attack bonus.  The bonus
         ///  must be an integer between 1 and 20.
         /// </summary>
-        public static NWN.ItemProperty ItemPropertyAttackBonusVsRace(ItemPropertyRacialType nRace, int nBonus)
+        public static NWN.ItemProperty ItemPropertyAttackBonusVsRace(Enums.Item.Property.RacialType nRace, int nBonus)
         {
             NWN.Internal.NativeFunctions.StackPushInteger(nBonus);
             NWN.Internal.NativeFunctions.StackPushInteger((int)nRace);
@@ -1178,7 +1180,7 @@ namespace NWN
         ///  the alignment you want the bonus to work against(IP_CONST_ALIGNMENT_*) and the
         ///  attack bonus.  The bonus must be an integer between 1 and 20.
         /// </summary>
-        public static NWN.ItemProperty ItemPropertyAttackBonusVsSAlign(ItemPropertyAlignment nAlignment, int nBonus)
+        public static NWN.ItemProperty ItemPropertyAttackBonusVsSAlign(Enums.Item.Property.Alignment nAlignment, int nBonus)
         {
             NWN.Internal.NativeFunctions.StackPushInteger(nBonus);
             NWN.Internal.NativeFunctions.StackPushInteger((int)nAlignment);
@@ -1204,7 +1206,7 @@ namespace NWN
         ///  bonus).  For this parmeter you use the constants beginning with:
         ///       (IP_CONST_UNLIMITEDAMMO_*).
         /// </summary>
-        public static NWN.ItemProperty ItemPropertyUnlimitedAmmo(ItemPropertyUnlimited nAmmoDamage = ItemPropertyUnlimited.Basic)
+        public static NWN.ItemProperty ItemPropertyUnlimitedAmmo(Unlimited nAmmoDamage = Unlimited.Basic)
         {
             NWN.Internal.NativeFunctions.StackPushInteger((int)nAmmoDamage);
             NWN.Internal.NativeFunctions.CallBuiltIn(671);
@@ -1215,7 +1217,7 @@ namespace NWN
         ///  Returns Item property limit use by alignment group.  You must specify the
         ///  alignment group(s) that you want to be able to use this item(IP_CONST_ALIGNMENTGROUP_*).
         /// </summary>
-        public static NWN.ItemProperty ItemPropertyLimitUseByAlign(ItemPropertyAlignmentGroup nAlignGroup)
+        public static NWN.ItemProperty ItemPropertyLimitUseByAlign(Enums.Item.Property.AlignmentGroup nAlignGroup)
         {
             NWN.Internal.NativeFunctions.StackPushInteger((int)nAlignGroup);
             NWN.Internal.NativeFunctions.CallBuiltIn(672);
@@ -1226,7 +1228,7 @@ namespace NWN
         ///  Returns Item property limit use by class.  You must specify the class(es) who
         ///  are able to use this item(IP_CONST_CLASS_*).
         /// </summary>
-        public static NWN.ItemProperty ItemPropertyLimitUseByClass(ItemPropertyClass nClass)
+        public static NWN.ItemProperty ItemPropertyLimitUseByClass(Class nClass)
         {
             NWN.Internal.NativeFunctions.StackPushInteger((int)nClass);
             NWN.Internal.NativeFunctions.CallBuiltIn(673);
@@ -1237,7 +1239,7 @@ namespace NWN
         ///  Returns Item property limit use by race.  You must specify the race(s) who are
         ///  allowed to use this item(IP_CONST_RACIALTYPE_*).
         /// </summary>
-        public static NWN.ItemProperty ItemPropertyLimitUseByRace(ItemPropertyRacialType nRace)
+        public static NWN.ItemProperty ItemPropertyLimitUseByRace(Enums.Item.Property.RacialType nRace)
         {
             NWN.Internal.NativeFunctions.StackPushInteger((int)nRace);
             NWN.Internal.NativeFunctions.CallBuiltIn(674);
@@ -1248,7 +1250,7 @@ namespace NWN
         ///  Returns Item property limit use by specific alignment.  You must specify the
         ///  alignment(s) of those allowed to use the item(IP_CONST_ALIGNMENT_*).
         /// </summary>
-        public static NWN.ItemProperty ItemPropertyLimitUseBySAlign(ItemPropertyAlignment nAlignment)
+        public static NWN.ItemProperty ItemPropertyLimitUseBySAlign(Enums.Item.Property.Alignment nAlignment)
         {
             NWN.Internal.NativeFunctions.StackPushInteger((int)nAlignment);
             NWN.Internal.NativeFunctions.CallBuiltIn(675);
@@ -1279,7 +1281,7 @@ namespace NWN
         ///  Returns Item property Trap.  You must specify the trap level constant
         ///  (IP_CONST_TRAPSTRENGTH_*) and the trap type constant(IP_CONST_TRAPTYPE_*).
         /// </summary>
-        public static NWN.ItemProperty ItemPropertyTrap(ItemPropertyTrapStrength nTrapLevel, ItemPropertyTrapType nTrapType)
+        public static NWN.ItemProperty ItemPropertyTrap(TrapStrength nTrapLevel, TrapType nTrapType)
         {
             NWN.Internal.NativeFunctions.StackPushInteger((int)nTrapType);
             NWN.Internal.NativeFunctions.StackPushInteger((int)nTrapLevel);
@@ -1340,7 +1342,7 @@ namespace NWN
         ///  Returns Item property Massive Critical.  You must specify the extra damage
         ///  constant(IP_CONST_DAMAGEBONUS_*) of the criticals.
         /// </summary>
-        public static NWN.ItemProperty ItemPropertyMassiveCritical(ItemPropertyDamageBonus nDamage)
+        public static NWN.ItemProperty ItemPropertyMassiveCritical(DamageBonus nDamage)
         {
             NWN.Internal.NativeFunctions.StackPushInteger((int)nDamage);
             NWN.Internal.NativeFunctions.CallBuiltIn(682);
@@ -1362,7 +1364,7 @@ namespace NWN
         ///  NOTE: These can only be applied to monster NATURAL weapons (ie. bite, claw,
         ///        gore, and slam).  IT WILL NOT WORK ON NORMAL WEAPONS.
         /// </summary>
-        public static NWN.ItemProperty ItemPropertyMonsterDamage(ItemPropertyMonsterDamage nDamage)
+        public static NWN.ItemProperty ItemPropertyMonsterDamage(MonsterDamage nDamage)
         {
             NWN.Internal.NativeFunctions.StackPushInteger((int)nDamage);
             NWN.Internal.NativeFunctions.CallBuiltIn(684);
@@ -1409,7 +1411,7 @@ namespace NWN
         ///  Returns Item property weight increase.  You must specify the weight increase
         ///  constant(IP_CONST_WEIGHTINCREASE_*).
         /// </summary>
-        public static NWN.ItemProperty ItemPropertyWeightIncrease(ItemPropertyWeightIncrease nWeight)
+        public static NWN.ItemProperty ItemPropertyWeightIncrease(WeightIncrease nWeight)
         {
             NWN.Internal.NativeFunctions.StackPushInteger((int)nWeight);
             NWN.Internal.NativeFunctions.CallBuiltIn(688);
@@ -1506,7 +1508,7 @@ namespace NWN
         ///  when a successful strike is made, or (when applied to armor) is struck by an opponent.
         ///  - nSpell uses the IP_CONST_ONHIT_CASTSPELL_* constants
         /// </summary>
-        public static NWN.ItemProperty ItemPropertyOnHitCastSpell(ItemPropertyOnHitCastSpell nSpell, int nLevel)
+        public static NWN.ItemProperty ItemPropertyOnHitCastSpell(OnHitCastSpell nSpell, int nLevel)
         {
             NWN.Internal.NativeFunctions.StackPushInteger(nLevel);
             NWN.Internal.NativeFunctions.StackPushInteger((int)nSpell);
@@ -1576,7 +1578,7 @@ namespace NWN
         ///               IP_CONST_QUALITY_*
         ///  Note: The quality property will only affect the cost of the item if you modify the cost in the iprp_qualcost.2da.
         /// </summary>
-        public static NWN.ItemProperty ItemPropertyQuality(ItemPropertyQuality nQuality)
+        public static NWN.ItemProperty ItemPropertyQuality(Quality nQuality)
         {
             NWN.Internal.NativeFunctions.StackPushInteger((int)nQuality);
             NWN.Internal.NativeFunctions.CallBuiltIn(846);
@@ -1589,7 +1591,7 @@ namespace NWN
         ///               IP_CONST_ADDITIONAL_*
         ///  Note: The additional property only affects the cost of the item if you modify the cost in the iprp_addcost.2da.
         /// </summary>
-        public static NWN.ItemProperty ItemPropertyAdditional(ItemPropertyAdditional nAdditionalProperty)
+        public static NWN.ItemProperty ItemPropertyAdditional(Additional nAdditionalProperty)
         {
             NWN.Internal.NativeFunctions.StackPushInteger((int)nAdditionalProperty);
             NWN.Internal.NativeFunctions.CallBuiltIn(847);

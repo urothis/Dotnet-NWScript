@@ -1,6 +1,5 @@
 using System.Collections.Generic;
-using System.Linq;
-using NWN.Enums;
+using NWN.Enums.Item;
 
 namespace NWN
 {

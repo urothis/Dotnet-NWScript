@@ -1,4 +1,6 @@
 using NWN.Enums;
+using NWN.Enums.Item.Property;
+using NWN.Enums.VisualEffect;
 
 namespace NWN
 {
@@ -337,7 +339,7 @@ namespace NWN
         ///  NOTE! You *must* use the DAMAGE_BONUS_* constants! Using other values may
         ///        result in odd behaviour.
         /// </summary>
-        public static NWN.Effect EffectDamageIncrease(int nBonus, DamageType nDamageType = DamageType.Magical)
+        public static NWN.Effect EffectDamageIncrease(int nBonus, Enums.DamageType nDamageType = Enums.DamageType.Magical)
         {
             NWN.Internal.NativeFunctions.StackPushInteger((int)nDamageType);
             NWN.Internal.NativeFunctions.StackPushInteger(nBonus);
@@ -388,7 +390,7 @@ namespace NWN
         ///  - nDamageType: DAMAGE_TYPE_*
         ///    * Default value for nDamageType should only ever be used in this function prototype.
         /// </summary>
-        public static NWN.Effect EffectACIncrease(int nValue, ACModifierType nModifyType = ACModifierType.DodgeBonus, DamageType nDamageType = DamageType.None)
+        public static NWN.Effect EffectACIncrease(int nValue, ArmorClassModiferType nModifyType = ArmorClassModiferType.Dodge, Enums.DamageType nDamageType = Enums.DamageType.Magical)
         {
             NWN.Internal.NativeFunctions.StackPushInteger((int)nDamageType);
             NWN.Internal.NativeFunctions.StackPushInteger((int)nModifyType);
@@ -490,7 +492,7 @@ namespace NWN
         ///  - nDamageType: DAMAGE_TYPE_*
         ///  - nDamagePower: DAMAGE_POWER_*
         /// </summary>
-        public static NWN.Effect EffectDamage(int nDamageAmount, DamageType nDamageType = DamageType.Magical, DamagePower nDamagePower = DamagePower.Normal)
+        public static NWN.Effect EffectDamage(int nDamageAmount, Enums.DamageType nDamageType = Enums.DamageType.Magical, DamagePower nDamagePower = DamagePower.Normal)
         {
             NWN.Internal.NativeFunctions.StackPushInteger((int)nDamagePower);
             NWN.Internal.NativeFunctions.StackPushInteger((int)nDamageType);
@@ -503,7 +505,7 @@ namespace NWN
         ///  Create an Ability Increase effect
         ///  - bAbilityToIncrease: ABILITY_*
         /// </summary>
-        public static NWN.Effect EffectAbilityIncrease(Ability nAbilityToIncrease, int nModifyBy)
+        public static NWN.Effect EffectAbilityIncrease(NWN.Enums.Ability nAbilityToIncrease, int nModifyBy)
         {
             NWN.Internal.NativeFunctions.StackPushInteger(nModifyBy);
             NWN.Internal.NativeFunctions.StackPushInteger((int)nAbilityToIncrease);
@@ -518,7 +520,7 @@ namespace NWN
         ///  - nAmount
         ///  - nLimit
         /// </summary>
-        public static NWN.Effect EffectDamageResistance(DamageType nDamageType, int nAmount, int nLimit = 0)
+        public static NWN.Effect EffectDamageResistance(Enums.DamageType nDamageType, int nAmount, int nLimit = 0)
         {
             NWN.Internal.NativeFunctions.StackPushInteger(nLimit);
             NWN.Internal.NativeFunctions.StackPushInteger(nAmount);
@@ -547,7 +549,7 @@ namespace NWN
         ///    summoned. If zero, it will just fade in somewhere near the target.  If the value is 1
         ///    it will use the appear animation, and if it's 2 it will use appear2 (which doesn't exist for most creatures)
         /// </summary>
-        public static NWN.Effect EffectSummonCreature(string sCreatureResref, Vfx nVisualEffectId = Vfx.None, float fDelaySeconds = 0.0f, bool nUseAppearAnimation = false)
+        public static NWN.Effect EffectSummonCreature(string sCreatureResref, Common nVisualEffectId = Common.SparksParry, float fDelaySeconds = 0.0f, bool nUseAppearAnimation = false)
         {
             NWN.Internal.NativeFunctions.StackPushInteger(nUseAppearAnimation? 0 : 1);
             NWN.Internal.NativeFunctions.StackPushFloat(fDelaySeconds);
@@ -572,7 +574,7 @@ namespace NWN
         ///  - nPercent - percentage of failure
         ///  - nSpellSchool - the school of spells affected.
         /// </summary>
-        public static NWN.Effect EffectSpellFailure(int nPercent = 100, SpellSchool nSpellSchool = SpellSchool.General)
+        public static NWN.Effect EffectSpellFailure(int nPercent = 100, Enums.SpellSchool nSpellSchool = Enums.SpellSchool.General)
         {
             NWN.Internal.NativeFunctions.StackPushInteger((int)nSpellSchool);
             NWN.Internal.NativeFunctions.StackPushInteger(nPercent);
@@ -752,7 +754,7 @@ namespace NWN
         ///    nMaxSpellLevelAbsorbed is not between -1 and 9 inclusive, or nSpellSchool
         ///    is invalid.
         /// </summary>
-        public static NWN.Effect EffectSpellLevelAbsorption(int nMaxSpellLevelAbsorbed, int nTotalSpellLevelsAbsorbed = 0, SpellSchool nSpellSchool = SpellSchool.General)
+        public static NWN.Effect EffectSpellLevelAbsorption(int nMaxSpellLevelAbsorbed, int nTotalSpellLevelsAbsorbed = 0, Enums.SpellSchool nSpellSchool = Enums.SpellSchool.General)
         {
             NWN.Internal.NativeFunctions.StackPushInteger((int)nSpellSchool);
             NWN.Internal.NativeFunctions.StackPushInteger(nTotalSpellLevelsAbsorbed);
@@ -936,7 +938,7 @@ namespace NWN
         ///  - nPenalty
         ///  - nDamageType: DAMAGE_TYPE_*
         /// </summary>
-        public static NWN.Effect EffectDamageDecrease(int nPenalty, DamageType nDamageType = DamageType.Magical)
+        public static NWN.Effect EffectDamageDecrease(int nPenalty, Enums.DamageType nDamageType = Enums.DamageType.Magical)
         {
             NWN.Internal.NativeFunctions.StackPushInteger((int)nDamageType);
             NWN.Internal.NativeFunctions.StackPushInteger(nPenalty);
@@ -964,7 +966,7 @@ namespace NWN
         ///  - nDamageType: DAMAGE_TYPE_*
         ///    * Default value for nDamageType should only ever be used in this function prototype.
         /// </summary>
-        public static NWN.Effect EffectACDecrease(int nValue, ACModifierType nModifyType = ACModifierType.DodgeBonus, DamageType nDamageType = DamageType.Magical)
+        public static NWN.Effect EffectACDecrease(int nValue, ArmorClassModiferType nModifyType = ArmorClassModiferType.Dodge, Enums.DamageType nDamageType = Enums.DamageType.Magical)
         {
             NWN.Internal.NativeFunctions.StackPushInteger((int)nDamageType);
             NWN.Internal.NativeFunctions.StackPushInteger((int)nModifyType);
@@ -1069,7 +1071,9 @@ namespace NWN
         ///  - nLawChaos: ALIGNMENT_LAWFUL/ALIGNMENT_CHAOTIC/ALIGNMENT_ALL
         ///  - nGoodEvil: ALIGNMENT_GOOD/ALIGNMENT_EVIL/ALIGNMENT_ALL
         /// </summary>
-        public static NWN.Effect VersusAlignmentEffect(NWN.Effect eEffect, Alignment nLawChaos = Alignment.All, Alignment nGoodEvil = Alignment.All)
+        public static NWN.Effect VersusAlignmentEffect(Effect eEffect, 
+            NWN.Enums.Alignment nLawChaos = NWN.Enums.Alignment.All, 
+            NWN.Enums.Alignment nGoodEvil = NWN.Enums.Alignment.All)
         {
             NWN.Internal.NativeFunctions.StackPushInteger((int)nGoodEvil);
             NWN.Internal.NativeFunctions.StackPushInteger((int)nLawChaos);
@@ -1083,7 +1087,7 @@ namespace NWN
         ///  - eEffect
         ///  - nRacialType: RACIAL_TYPE_*
         /// </summary>
-        public static NWN.Effect VersusRacialTypeEffect(NWN.Effect eEffect, RacialType nRacialType)
+        public static NWN.Effect VersusRacialTypeEffect(Effect eEffect, Enums.RacialType nRacialType)
         {
             NWN.Internal.NativeFunctions.StackPushInteger((int)nRacialType);
             NWN.Internal.NativeFunctions.StackPushEffect(eEffect.Handle);
@@ -1094,7 +1098,7 @@ namespace NWN
         /// <summary>
         ///  Set eEffect to be versus traps.
         /// </summary>
-        public static NWN.Effect VersusTrapEffect(NWN.Effect eEffect)
+        public static NWN.Effect VersusTrapEffect(Effect eEffect)
         {
             NWN.Internal.NativeFunctions.StackPushEffect(eEffect.Handle);
             NWN.Internal.NativeFunctions.CallBuiltIn(357);
@@ -1150,7 +1154,7 @@ namespace NWN
         ///  - nDamageType: DAMAGE_TYPE_*
         ///  - nPercentImmunity
         /// </summary>
-        public static NWN.Effect EffectDamageImmunityIncrease(DamageType nDamageType, int nPercentImmunity)
+        public static NWN.Effect EffectDamageImmunityIncrease(Enums.DamageType nDamageType, int nPercentImmunity)
         {
             NWN.Internal.NativeFunctions.StackPushInteger(nPercentImmunity);
             NWN.Internal.NativeFunctions.StackPushInteger((int)nDamageType);
@@ -1239,7 +1243,7 @@ namespace NWN
         ///  * Returns an effect of type EFFECT_TYPE_INVALIDEFFECT if nBeamVisualEffect is
         ///    not valid.
         /// </summary>
-        public static NWN.Effect EffectBeam(Vfx nBeamVisualEffect, uint oEffector, int nBodyPart, bool bMissEffect = false)
+        public static NWN.Effect EffectBeam(Beam nBeamVisualEffect, uint oEffector, int nBodyPart, bool bMissEffect = false)
         {
             NWN.Internal.NativeFunctions.StackPushInteger(bMissEffect? 1 : 0);
             NWN.Internal.NativeFunctions.StackPushInteger(nBodyPart);
@@ -1274,10 +1278,10 @@ namespace NWN
         ///  - nMissEffect: if this is TRUE, a random vector near or past the target will
         ///    be generated, on which to play the effect
         /// </summary>
-        public static NWN.Effect EffectVisualEffect(Vfx nVisualEffectId, bool nMissEffect = false)
+        public static NWN.Effect EffectVisualEffect(VisualEffect visualEffectID, bool nMissEffect = false)
         {
             NWN.Internal.NativeFunctions.StackPushInteger(nMissEffect? 0 : 1);
-            NWN.Internal.NativeFunctions.StackPushInteger((int)nVisualEffectId);
+            NWN.Internal.NativeFunctions.StackPushInteger((int)visualEffectID);
             NWN.Internal.NativeFunctions.CallBuiltIn(180);
             return new NWN.Effect(NWN.Internal.NativeFunctions.StackPopEffect());
         }

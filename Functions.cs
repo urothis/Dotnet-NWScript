@@ -1,4 +1,5 @@
 using NWN.Enums;
+using NWN.Enums.Creature;
 
 namespace NWN
 {
@@ -265,7 +266,7 @@ namespace NWN
         ///    further specify the type of creature that we are looking for.
         ///  * Return value on error: OBJECT_INVALID
         /// </summary>
-        public static uint GetNearestCreature(CreatureType nFirstCriteriaType, int nFirstCriteriaValue, uint oTarget = OBJECT_INVALID, int nNth = 1, int nSecondCriteriaType = -1, int nSecondCriteriaValue = -1, int nThirdCriteriaType = -1, int nThirdCriteriaValue = -1)
+        public static uint GetNearestCreature(Type nFirstCriteriaType, int nFirstCriteriaValue, uint oTarget = OBJECT_INVALID, int nNth = 1, int nSecondCriteriaType = -1, int nSecondCriteriaValue = -1, int nThirdCriteriaType = -1, int nThirdCriteriaValue = -1)
         {
             NWN.Internal.NativeFunctions.StackPushInteger(nThirdCriteriaValue);
             NWN.Internal.NativeFunctions.StackPushInteger(nThirdCriteriaType);
@@ -603,7 +604,7 @@ namespace NWN
         ///  Note: If used within an Area of Effect Object Script (On Enter, OnExit, OnHeartbeat), you MUST pass
         ///  GetAreaOfEffectCreator() into oSaveVersus!!
         /// </summary>
-        public static int FortitudeSave(uint oCreature, int nDC, SavingThrowType nSaveType = SavingThrowType.None, uint oSaveVersus = OBJECT_INVALID)
+        public static int FortitudeSave(uint oCreature, int nDC, SavingThrowType nSaveType = SavingThrowType.All, uint oSaveVersus = OBJECT_INVALID)
         {
             NWN.Internal.NativeFunctions.StackPushObject(oSaveVersus);
             NWN.Internal.NativeFunctions.StackPushInteger((int)nSaveType);
@@ -625,7 +626,7 @@ namespace NWN
         ///  Note: If used within an Area of Effect Object Script (On Enter, OnExit, OnHeartbeat), you MUST pass
         ///  GetAreaOfEffectCreator() into oSaveVersus!!
         /// </summary>
-        public static SaveReturn ReflexSave(uint oCreature, int nDC, SavingThrowType nSaveType = SavingThrowType.None, uint oSaveVersus = OBJECT_INVALID)
+        public static SaveReturn ReflexSave(uint oCreature, int nDC, SavingThrowType nSaveType = SavingThrowType.All, uint oSaveVersus = OBJECT_INVALID)
         {
             NWN.Internal.NativeFunctions.StackPushObject(oSaveVersus);
             NWN.Internal.NativeFunctions.StackPushInteger((int)nSaveType);
@@ -647,7 +648,7 @@ namespace NWN
         ///  Note: If used within an Area of Effect Object Script (On Enter, OnExit, OnHeartbeat), you MUST pass
         ///  GetAreaOfEffectCreator() into oSaveVersus!!
         /// </summary>
-        public static int WillSave(uint oCreature, int nDC, SavingThrowType nSaveType = SavingThrowType.None, uint oSaveVersus = OBJECT_INVALID)
+        public static int WillSave(uint oCreature, int nDC, SavingThrowType nSaveType = SavingThrowType.All, uint oSaveVersus = OBJECT_INVALID)
         {
             NWN.Internal.NativeFunctions.StackPushObject(oSaveVersus);
             NWN.Internal.NativeFunctions.StackPushInteger((int)nSaveType);
@@ -1845,7 +1846,7 @@ namespace NWN
         ///  - nSaveType: SAVING_THROW_TYPE_*
         ///  - oSaveVersus
         /// </summary>
-        public static int GetReflexAdjustedDamage(int nDamage, uint oTarget, int nDC, SavingThrowType nSaveType = SavingThrowType.None, uint oSaveVersus = OBJECT_INVALID)
+        public static int GetReflexAdjustedDamage(int nDamage, uint oTarget, int nDC, SavingThrowType nSaveType = SavingThrowType.All, uint oSaveVersus = OBJECT_INVALID)
         {
             NWN.Internal.NativeFunctions.StackPushObject(oSaveVersus);
             NWN.Internal.NativeFunctions.StackPushInteger((int)nSaveType);

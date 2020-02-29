@@ -1,4 +1,5 @@
 using NWN.Enums;
+using NWN.Enums.Area;
 
 namespace NWN
 {
@@ -248,11 +249,11 @@ namespace NWN
         /// <summary>
         ///  This will return TRUE if the area is flagged as either interior or underground.
         /// </summary>
-        public static AreaAboveGround GetIsAreaInterior(uint oArea = OBJECT_INVALID)
+        public static AboveGround GetIsAreaInterior(uint oArea = OBJECT_INVALID)
         {
             NWN.Internal.NativeFunctions.StackPushObject(oArea);
             NWN.Internal.NativeFunctions.CallBuiltIn(716);
-            return (AreaAboveGround)NWN.Internal.NativeFunctions.StackPopInteger();
+            return (AboveGround)NWN.Internal.NativeFunctions.StackPopInteger();
         }
 
         /// <summary>
@@ -271,11 +272,11 @@ namespace NWN
         ///  Returns AREA_NATURAL if the area oArea is natural, AREA_ARTIFICIAL otherwise.
         ///  Returns AREA_INVALID, on an error.
         /// </summary>
-        public static AreaNatural GetIsAreaNatural(uint oArea)
+        public static Natural GetIsAreaNatural(uint oArea)
         {
             NWN.Internal.NativeFunctions.StackPushObject(oArea);
             NWN.Internal.NativeFunctions.CallBuiltIn(725);
-            return (AreaNatural)NWN.Internal.NativeFunctions.StackPopInteger();
+            return (Natural)NWN.Internal.NativeFunctions.StackPopInteger();
         }
 
         /// <summary>
@@ -421,7 +422,7 @@ namespace NWN
         ///  If no valid area (or object) is specified, it uses the area of the caller.
         ///  If an object other than an area is specified, will use the area that the object is currently in.
         /// </summary>
-        public static int GetAreaSize(AreaDimension nAreaDimension, uint oArea = OBJECT_INVALID)
+        public static int GetAreaSize(Dimension nAreaDimension, uint oArea = OBJECT_INVALID)
         {
             NWN.Internal.NativeFunctions.StackPushObject(oArea);
             NWN.Internal.NativeFunctions.StackPushInteger((int)nAreaDimension);

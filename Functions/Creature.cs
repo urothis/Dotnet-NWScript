@@ -1,4 +1,5 @@
 using NWN.Enums;
+using NWN.Enums.Creature;
 
 namespace NWN
 {
@@ -62,11 +63,11 @@ namespace NWN
         ///  if the creature has no wings, or if the creature can not have its
         ///  wing type changed in the toolset.
         /// </summary>
-        public static CreatureWingType GetCreatureWingType(uint oCreature = OBJECT_INVALID)
+        public static WingType GetCreatureWingType(uint oCreature = OBJECT_INVALID)
         {
             NWN.Internal.NativeFunctions.StackPushObject(oCreature);
             NWN.Internal.NativeFunctions.CallBuiltIn(790);
-            return (CreatureWingType)NWN.Internal.NativeFunctions.StackPopInteger();
+            return (WingType)NWN.Internal.NativeFunctions.StackPopInteger();
         }
 
         /// <summary>
@@ -84,7 +85,7 @@ namespace NWN
         ///  The MODELTYPE for the part based (playable races) 'P'
         ///  and MODELTYPE 'W'in the appearance.2da
         /// </summary>
-        public static void SetCreatureWingType(CreatureWingType nWingType, uint oCreature = OBJECT_INVALID)
+        public static void SetCreatureWingType(WingType nWingType, uint oCreature = OBJECT_INVALID)
         {
             NWN.Internal.NativeFunctions.StackPushObject(oCreature);
             NWN.Internal.NativeFunctions.StackPushInteger((int)nWingType);
@@ -124,12 +125,12 @@ namespace NWN
         ///       CREATURE_PART_LEFT_HAND
         ///       CREATURE_PART_HEAD
         /// </summary>
-        public static CreaturePart GetCreatureBodyPart(CreaturePart nPart, uint oCreature = OBJECT_INVALID)
+        public static Part GetCreatureBodyPart(Part nPart, uint oCreature = OBJECT_INVALID)
         {
             NWN.Internal.NativeFunctions.StackPushObject(oCreature);
             NWN.Internal.NativeFunctions.StackPushInteger((int)nPart);
             NWN.Internal.NativeFunctions.CallBuiltIn(792);
-            return (CreaturePart)NWN.Internal.NativeFunctions.StackPopInteger();
+            return (Part)NWN.Internal.NativeFunctions.StackPopInteger();
         }
 
         /// <summary>
@@ -166,7 +167,7 @@ namespace NWN
         ///  Note: Only part based creature appearance types are supported.
         ///  i.e. The model types for the playable races ('P') in the appearance.2da
         /// </summary>
-        public static void SetCreatureBodyPart(CreaturePart nPart, CreatureModelType nModelNumber, uint oCreature = OBJECT_INVALID)
+        public static void SetCreatureBodyPart(Part nPart, ModelType nModelNumber, uint oCreature = OBJECT_INVALID)
         {
             NWN.Internal.NativeFunctions.StackPushObject(oCreature);
             NWN.Internal.NativeFunctions.StackPushInteger((int)nModelNumber);
@@ -184,11 +185,11 @@ namespace NWN
         ///  if the creature has no Tail, or if the creature can not have its
         ///  Tail type changed in the toolset.
         /// </summary>
-        public static CreatureTailType GetCreatureTailType(uint oCreature = OBJECT_INVALID)
+        public static TailType GetCreatureTailType(uint oCreature = OBJECT_INVALID)
         {
             NWN.Internal.NativeFunctions.StackPushObject(oCreature);
             NWN.Internal.NativeFunctions.CallBuiltIn(794);
-            return (CreatureTailType)NWN.Internal.NativeFunctions.StackPopInteger();
+            return (TailType)NWN.Internal.NativeFunctions.StackPopInteger();
         }
 
         /// <summary>
@@ -203,7 +204,7 @@ namespace NWN
         ///  The MODELTYPE for the part based (playable) races 'P'
         ///  and MODELTYPE 'T'in the appearance.2da
         /// </summary>
-        public static void SetCreatureTailType(CreatureTailType nTailType, uint oCreature = OBJECT_INVALID)
+        public static void SetCreatureTailType(TailType nTailType, uint oCreature = OBJECT_INVALID)
         {
             NWN.Internal.NativeFunctions.StackPushObject(oCreature);
             NWN.Internal.NativeFunctions.StackPushInteger((int)nTailType);
@@ -364,11 +365,11 @@ namespace NWN
         /// <summary>
         ///  Returns the current arcane spell failure factor of a creature
         /// </summary>
-        public static ArcaneSpellFailure GetArcaneSpellFailure(uint oCreature)
+        public static int GetArcaneSpellFailure(uint oCreature)
         {
             NWN.Internal.NativeFunctions.StackPushObject(oCreature);
             NWN.Internal.NativeFunctions.CallBuiltIn(737);
-            return (ArcaneSpellFailure)NWN.Internal.NativeFunctions.StackPopInteger();
+            return NWN.Internal.NativeFunctions.StackPopInteger();
         }
 
         /// <summary>
@@ -1019,7 +1020,7 @@ namespace NWN
         ///    further specify the type of creature that we are looking for.
         ///  * Return value on error: OBJECT_INVALID
         /// </summary>
-        public static uint GetNearestCreatureToLocation(CreatureType nFirstCriteriaType, bool nFirstCriteriaValue, NWN.Location lLocation, int nNth = 1, int nSecondCriteriaType = -1, int nSecondCriteriaValue = -1, int nThirdCriteriaType = -1, int nThirdCriteriaValue = -1)
+        public static uint GetNearestCreatureToLocation(Type nFirstCriteriaType, bool nFirstCriteriaValue, NWN.Location lLocation, int nNth = 1, int nSecondCriteriaType = -1, int nSecondCriteriaValue = -1, int nThirdCriteriaType = -1, int nThirdCriteriaValue = -1)
         {
             NWN.Internal.NativeFunctions.StackPushInteger(nThirdCriteriaValue);
             NWN.Internal.NativeFunctions.StackPushInteger(nThirdCriteriaType);
