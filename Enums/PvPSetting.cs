@@ -1,10 +1,8 @@
-﻿namespace NWN.Enums
-{
-    public enum PvPSetting
-    {
-        NoPvP,
-        PartyPvP,
-        FullPvP,
-        ServerDefault
-    }
+﻿namespace NWN.Enums {
+	public enum PvPSetting {
+		NoPvP,
+		PartyPvP,
+		FullPvP,
+		ServerDefault
+	}
 }

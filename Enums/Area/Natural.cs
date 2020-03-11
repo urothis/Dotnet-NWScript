@@ -1,8 +1,6 @@
-﻿namespace NWN.Enums.Area
-{
-    public enum Natural
-    {
-        Artificial,
-        Natural
-    }
+﻿namespace NWN.Enums.Area {
+	public enum Natural {
+		Artificial,
+		Natural
+	}
 }

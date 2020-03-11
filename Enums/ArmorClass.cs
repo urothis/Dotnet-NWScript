@@ -1,11 +1,9 @@
-namespace NWN.Enums
-{
-    public enum ArmorClass
-    {
-        DodgeBonus,
-        NaturalBonus,
-        EnchantmentBonus,
-        ShieldEnchantmentBonus,
-        DeflectionBonus
-    }
+namespace NWN.Enums {
+	public enum ArmorClass {
+		DodgeBonus,
+		NaturalBonus,
+		EnchantmentBonus,
+		ShieldEnchantmentBonus,
+		DeflectionBonus
+	}
 }

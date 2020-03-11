@@ -1,7 +1,5 @@
-namespace NWN.Enums
-{
-    public enum GuiPanel
-    {
-        PlayerDeath = 0
-    }
+namespace NWN.Enums {
+	public enum GuiPanel {
+		PlayerDeath = 0
+	}
 }

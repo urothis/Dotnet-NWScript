@@ -1,8 +1,6 @@
-﻿namespace NWN.Enums.Area
-{
-    public enum Dimension
-    {
-        Height,
-        Width
-    }
+﻿namespace NWN.Enums.Area {
+	public enum Dimension {
+		Height,
+		Width
+	}
 }

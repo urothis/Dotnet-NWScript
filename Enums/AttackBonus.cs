@@ -1,9 +1,7 @@
-namespace NWN.Enums
-{
-    public enum AttackBonus
-    {
-        Misc,
-        OnHand,
-        OffHand
-    }
+namespace NWN.Enums {
+	public enum AttackBonus {
+		Misc,
+		OnHand,
+		OffHand
+	}
 }

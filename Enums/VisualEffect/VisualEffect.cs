@@ -1,7 +1,5 @@
-namespace NWN.Enums.VisualEffect
-{
-    public enum VisualEffect
-    {
-        None = -1,
-    }
+namespace NWN.Enums.VisualEffect {
+	public enum VisualEffect {
+		None = -1
+	}
 }

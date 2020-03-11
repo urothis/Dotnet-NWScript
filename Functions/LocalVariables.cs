@@ -1,9 +1,4 @@
-using NWN.Enums;
-
-namespace NWN
-{
-    public partial class NWScript
-    {
-
-    }
+namespace NWN {
+	public partial class NWScript {
+	}
 }

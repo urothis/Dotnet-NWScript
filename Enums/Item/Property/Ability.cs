@@ -1,12 +1,10 @@
-namespace NWN.Enums.Item.Property
-{
-    public enum Ability
-    {
-        Strength,
-        Dexterity,
-        Constitution,
-        Intelligence,
-        Wisdom,
-        Charisma
-    }
+namespace NWN.Enums.Item.Property {
+	public enum Ability {
+		Strength,
+		Dexterity,
+		Constitution,
+		Intelligence,
+		Wisdom,
+		Charisma
+	}
 }

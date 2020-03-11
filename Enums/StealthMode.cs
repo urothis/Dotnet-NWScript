@@ -1,8 +1,6 @@
-namespace NWN.Enums
-{
-    public enum StealthMode
-    {
-        Passive,
-        Active
-    }
+namespace NWN.Enums {
+	public enum StealthMode {
+		Passive,
+		Active
+	}
 }

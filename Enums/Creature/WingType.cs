@@ -1,13 +1,11 @@
-namespace NWN.Enums.Creature
-{
-    public enum WingType
-    {
-        None,
-        Demon,
-        Angel,
-        Bat,
-        Dragon,
-        Butterfly,
-        Bird
-    }
+namespace NWN.Enums.Creature {
+	public enum WingType {
+		None,
+		Demon,
+		Angel,
+		Bat,
+		Dragon,
+		Butterfly,
+		Bird
+	}
 }
